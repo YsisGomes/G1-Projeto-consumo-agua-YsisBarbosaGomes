@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consumo de Água no Brasil</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f8fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            color: #2E86C1;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .identificacao {
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #2E86C1;
+            margin-top: 0;
+            border-left: 5px solid #2E86C1;
+            padding-left: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background-color: #f7fbfe;
+            border-left: 4px solid #2E86C1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            color: #2E86C1;
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .tecnologias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tecnologia {
+            background-color: #e8f4fb;
+            color: #1f618d;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .botao {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2E86C1;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .botao:hover {
+            background-color: #21618C;
+        }
+
+        .dashboard {
+            text-align: center;
+        }
+
+        .dashboard .botao {
+            margin-top: 15px;
+            padding: 14px 28px;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            padding: 20px 0 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Consumo de Água no Brasil</h1>
+
+            <p>
+                Análise e visualização dos padrões de consumo de água
+                no Brasil entre 2015 e 2024
+            </p>
+
+            <div class="identificacao">
+                <strong>Disciplina:</strong>
+                Linguagem de Programação — Análise e Visualização de Dados com Python
+                <br>
+
+                <strong>Professor:</strong>
+                Alexandre Neves Louzada
+                <br>
+
+                <strong>Aluna:</strong>
+                Ysis Barbosa Gomes
+            </div>
+        </header>
+
+
+        <section>
+            <h2>Sobre o projeto</h2>
+
+            <p>
+                Este projeto apresenta uma análise do consumo de água no Brasil,
+                considerando informações relacionadas ao consumo, desperdício,
+                níveis dos reservatórios, chuva, população e diferentes setores
+                de consumo.
+            </p>
+
+            <p>
+                A análise busca identificar padrões temporais, diferenças entre
+                regiões e estados, comportamento dos setores e possíveis relações
+                entre fatores ambientais e o consumo de água.
+            </p>
+        </section>
+
+
+        <section>
+            <h2>Perguntas de análise</h2>
+
+            <ul>
+                <li>Quais estados apresentam maior consumo de água?</li>
+                <li>Quais regiões concentram os maiores volumes de consumo?</li>
+                <li>Quais setores apresentam maior consumo?</li>
+                <li>Existem padrões sazonais no consumo de água?</li>
+                <li>Qual é o nível médio de desperdício?</li>
+                <li>Como estão os níveis dos reservatórios?</li>
+                <li>Existe relação entre chuva e consumo de água?</li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Indicadores analisados</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Consumo Total</h3>
+                    <p>Volume total de água consumido no período analisado.</p>
+                </div>
+
+                <div class="card">
+                    <h3>UF com Maior Consumo</h3>
+                    <p>Estado que apresenta o maior volume de consumo.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Setor com Maior Consumo</h3>
+                    <p>Setor responsável pelo maior volume de consumo.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Consumo Per Capita</h3>
+                    <p>Média do consumo de água por habitante.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Desperdício Médio</h3>
+                    <p>Percentual médio de desperdício registrado.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Nível dos Reservatórios</h3>
+                    <p>Nível médio dos reservatórios no período analisado.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section>
+            <h2>Tecnologias utilizadas</h2>
+
+            <div class="tecnologias">
+                <span class="tecnologia">Python</span>
+                <span class="tecnologia">Pandas</span>
+                <span class="tecnologia">Matplotlib</span>
+                <span class="tecnologia">Seaborn</span>
+                <span class="tecnologia">NumPy</span>
+                <span class="tecnologia">Streamlit</span>
+                <span class="tecnologia">SQLAlchemy</span>
+                <span class="tecnologia">SQLite</span>
+                <span class="tecnologia">GitHub</span>
+                <span class="tecnologia">GitHub Pages</span>
+            </div>
+        </section>
+
+
+        <section>
+            <h2>Arquivos do projeto</h2>
+
+            <p>
+                Os principais arquivos utilizados no desenvolvimento da análise
+                podem ser acessados abaixo.
+            </p>
+
+            <div class="links">
+
+                <a class="botao" href="README.md">
+                    README
+                </a>
+
+                <a class="botao" href="notebooks/analise_consumo_agua.ipynb">
+                    Notebook
+                </a>
+
+                <a class="botao" href="dados/simulacao_consumo_agua_brasil.csv">
+                    Base de Dados
+                </a>
+
+            </div>
+        </section>
+
+
+        <section class="dashboard">
+            <h2>Dashboard interativo</h2>
+
+            <p>
+                O dashboard desenvolvido com Streamlit permite explorar os dados
+                por meio de filtros de ano, mês, região, UF, setor de consumo
+                e nível de alerta.
+            </p>
+
+            <p>
+                Os indicadores, gráficos e interpretações são atualizados
+                dinamicamente de acordo com os filtros selecionados.
+            </p>
+
+            <!-- O link será adicionado após a publicação no Streamlit -->
+            <a class="botao" href="#">
+                Acessar Dashboard Streamlit
+            </a>
+        </section>
+
+
+        <section>
+            <h2>Objetivo acadêmico</h2>
+
+            <p>
+                O projeto foi desenvolvido com o objetivo de aplicar técnicas
+                de análise, tratamento e visualização de dados utilizando Python,
+                além da construção de uma aplicação interativa para apresentação
+                dos resultados.
+            </p>
+
+            <p>
+                A análise possibilita compreender padrões relacionados ao consumo
+                e ao desperdício de água, contribuindo para a interpretação dos
+                dados e para a discussão sobre o uso eficiente dos recursos hídricos.
+            </p>
+        </section>
+
+
+        <footer>
+            Projeto G1 — Consumo de Água no Brasil
+            <br>
+            Ysis Barbosa Gomes
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
