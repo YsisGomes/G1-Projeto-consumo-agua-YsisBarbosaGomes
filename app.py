@@ -340,6 +340,32 @@ if not df_filtrado.empty:
     st.pyplot(fig7)
 
     plt.close(fig7)
+
+    st.subheader("Análise dos Reservatórios")
+
+    reservatorios_anuais = (
+        df_filtrado.groupby("ano")["reservatorios_percentual"]
+        .mean()
+        .reset_index()
+    )
+
+    fig8, ax8 = plt.subplots(figsize=(10, 5))
+
+    sns.lineplot(
+        data=reservatorios_anuais,
+        x="ano",
+        y="reservatorios_percentual",
+        marker="o",
+        ax=ax8
+    )
+
+    ax8.set_title("Evolução do Nível dos Reservatórios")
+    ax8.set_xlabel("Ano")
+    ax8.set_ylabel("Nível médio dos reservatórios (%)")
+
+    st.pyplot(fig8)
+
+    plt.close(fig8)
     
     st.subheader("Interpretação dos Resultados")
 
