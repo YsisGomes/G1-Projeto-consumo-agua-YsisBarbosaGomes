@@ -315,6 +315,32 @@ if not df_filtrado.empty:
         f"**Correlação entre chuva e consumo:** {correlacao:.3f}"
     )
 
+        st.subheader("Análise do Desperdício")
+
+    desperdicio_anual = (
+        df_filtrado.groupby("ano")["desperdicio_percentual"]
+        .mean()
+        .reset_index()
+    )
+
+    fig7, ax7 = plt.subplots(figsize=(10, 5))
+
+    sns.lineplot(
+        data=desperdicio_anual,
+        x="ano",
+        y="desperdicio_percentual",
+        marker="o",
+        ax=ax7
+    )
+
+    ax7.set_title("Evolução do Desperdício de Água")
+    ax7.set_xlabel("Ano")
+    ax7.set_ylabel("Desperdício médio (%)")
+
+    st.pyplot(fig7)
+
+    plt.close(fig7)
+    
     st.subheader("Interpretação dos Resultados")
 
     regiao_maior_consumo = (
