@@ -315,7 +315,7 @@ if not df_filtrado.empty:
         f"**Correlação entre chuva e consumo:** {correlacao:.3f}"
     )
 
-        st.subheader("Análise do Desperdício")
+    st.subheader("Análise do Desperdício")
 
     desperdicio_anual = (
         df_filtrado.groupby("ano")["desperdicio_percentual"]
